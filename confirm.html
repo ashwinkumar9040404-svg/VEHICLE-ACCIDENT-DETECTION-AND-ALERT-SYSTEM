@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirmation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- APP CONTAINER -->
+<div class="app" style="
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+">
+
+  <h2>Confirm Alert</h2>
+
+  <p class="subtitle" style="margin-top: 10px; margin-bottom: 30px;">
+    Send alert to emergency contacts?
+  </p>
+
+  <button class="btn danger" onclick="goTo('location.html')">
+    Confirm & Send
+  </button>
+
+  <button class="btn primary" onclick="goTo('index.html')">
+    Cancel
+  </button>
+
+  <div class="screen-label">CONFIRMATION</div>
+</div>
+
+<!-- PAGE TRANSITION SCRIPT -->
+<script>
+function goTo(page) {
+  document.body.classList.add("exit");
+  setTimeout(() => {
+    window.location.href = page;
+  }, 400);
+}
+</script>
+
+</body>
+</html>

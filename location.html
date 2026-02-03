@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Location</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app"
+  style="display:flex; flex-direction:column; justify-content:center; text-align:center;">
+
+  <h2>Accident Location</h2>
+  <p class="subtitle">Live GPS Coordinates</p>
+
+  <div class="card">
+    <p>📍 Latitude: 12.9716</p>
+    <p>📍 Longitude: 77.5946</p>
+  </div>
+
+  <p class="status">Alert Sent Successfully ✔</p>
+
+  <button class="btn primary" onclick="goTo('index.html')">
+    Back to Home
+  </button>
+
+  <div class="screen-label">LOCATION</div>
+</div>
+
+<script>
+function goTo(page){
+  document.body.classList.add("exit");
+  setTimeout(()=>{ window.location.href = page; },400);
+}
+</script>
+
+</body>
+</html>

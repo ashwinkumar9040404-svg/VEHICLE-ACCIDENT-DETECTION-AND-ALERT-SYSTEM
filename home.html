@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app"
+  style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  ">
+
+  <!-- CAUTION IMAGE -->
+  <img src="ashwin.jpeg"
+       alt="Caution"
+       class="home-icon">
+
+  <!-- APP TITLE -->
+  <h1>SafeDrive</h1>
+  <p class="subtitle">
+    Smart Accident Detection & Emergency Alert System
+  </p>
+
+  <!-- STATUS CARD -->
+  <div class="card">
+    <p class="status">System Ready</p>
+    <p>📍 GPS Connected</p>
+    <p>📶 Network Online</p>
+    <p>🛡️ Driver Protection Active</p>
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  <button class="btn primary" onclick="goTo('monitoring.html')">
+    Start Monitoring
+  </button>
+
+  <button class="btn danger" onclick="goTo('alert.html')">
+    Simulate Accident
+  </button>
+
+  <div class="screen-label">HOME</div>
+</div>
+
+<!-- PAGE TRANSITION SCRIPT (COMMON FOR ALL PAGES) -->
+<script>
+function goTo(page) {
+  document.body.classList.add("exit");
+  setTimeout(() => {
+    window.location.href = page;
+  }, 400);
+}
+</script>
+
+</body>
+</html>

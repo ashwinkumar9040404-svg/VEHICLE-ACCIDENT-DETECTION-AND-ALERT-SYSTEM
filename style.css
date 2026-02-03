@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== HOME IMAGE ===== */
+.home-icon {
+  width: 110px;
+  margin-bottom: 15px;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes floatIcon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Page exit animation */
+body.exit .app {
+  animation: pageExit 0.4s ease-in forwards;
+}
+
+@keyframes pageExit {
+  to {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+/* ===== BODY ===== */
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(2,6,23,0.85), rgba(2,6,23,0.85)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* ===== BACKGROUND ANIMATION ===== */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(59,130,246,0.15), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(239,68,68,0.15), transparent 40%);
+  animation: bgMove 10s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes bgMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-40px); }
+}
+
+/* ===== APP BOX ===== */
+.app {
+  width: 360px;
+  height: 760px;
+  background: rgba(2,6,23,0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* ENTRY animation */
+  animation: pageEnter 0.5s ease-out;
+}
+
+/* ===== ENTRY ===== */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== EXIT ===== */
+body.exit .app {
+  animation: pageExit 0.4s ease-in forwards;
+}
+
+@keyframes pageExit {
+  to { opacity: 0; transform: translateX(-40px); }
+}
+
+/* ===== TEXT ===== */
+.subtitle {
+  color: #94a3b8;
+  margin: 15px 0 25px;
+}
+
+.status { color: #22c55e; font-weight: bold; }
+.status.danger { color: #ef4444; }
+
+/* ===== CARD ===== */
+.card {
+  background: rgba(15,23,42,0.7);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 16px;
+  border: none;
+  font-size: 15px;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn:active { transform: scale(0.96); }
+
+.btn.primary {
+  background: linear-gradient(135deg,#3b82f6,#2563eb);
+  color:#fff;
+}
+.btn.danger {
+  background: linear-gradient(135deg,#ef4444,#b91c1c);
+  color:#fff;
+}
+.btn.safe {
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  color:#022c22;
+}
+
+/* ===== SCREEN LABEL ===== */
+.screen-label {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(59,130,246,0.15);
+  color: #60a5fa;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 11px;
+}

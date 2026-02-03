@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accident Alert</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app"
+  style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  ">
+
+  <h2 class="status danger">⚠ Accident Detected</h2>
+
+  <p class="subtitle">
+    Respond within <strong><span id="timer">10</span></strong> seconds
+  </p>
+
+  <div class="card">
+    <p><strong>Emergency Contact</strong></p>
+    <p>📞 +91 XXXXXXXX69</p>
+  </div>
+
+  <button class="btn safe" onclick="userSafe()">
+    I'm Safe
+  </button>
+
+  <button class="btn danger" onclick="sendAlertManually()">
+    Send Emergency Alert
+  </button>
+
+  <div class="screen-label">ACCIDENT ALERT</div>
+</div>
+
+<script>
+let timeLeft = 10;
+let countdown;
+
+function startTimer() {
+  countdown = setInterval(() => {
+    timeLeft--;
+    document.getElementById("timer").innerText = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      autoSendAlert();   // DIRECT ALERT (NO CONFIRMATION)
+    }
+  }, 1000);
+}
+
+function userSafe() {
+  clearInterval(countdown);
+  goTo("index.html");   // Go back to HOME
+}
+
+function sendAlertManually() {
+  clearInterval(countdown);
+  autoSendAlert();
+}
+
+function autoSendAlert() {
+  // Directly go to location / alert sent page
+  goTo("location.html");
+}
+
+function goTo(page) {
+  document.body.classList.add("exit");
+  setTimeout(() => {
+    window.location.href = page;
+  }, 400);
+}
+
+// Start timer automatically
+startTimer();
+</script>
+
+</body>
+</html>
